@@ -1,15 +1,17 @@
 class Solution:
     
+    def __init__(self):
+        
+        self.memo ={1:1,2:2}
         
     def climbStairs(self, n: int) -> int:
         
-        d=[0]*(46)
-        d[1]=1
-        d[2] =2
         
-        for i in range(3,n+1):
         
-            d[i] = d[i-1]+d[i-2]
-            
-        return d[n]
         
+        if  n in self.memo:
+            return self.memo[n]
+        
+        self.memo[n] = self.climbStairs(n-1)+ self.climbStairs(n-2)
+        
+        return self.memo[n]
