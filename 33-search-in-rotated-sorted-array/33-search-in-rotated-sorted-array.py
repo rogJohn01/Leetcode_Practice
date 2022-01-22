@@ -1,12 +1,7 @@
 class Solution:
     def search(self, nums: List[int], target: int) -> int:
             
-            if len(nums) <=3:
-                for i,v in enumerate(nums):
-                    if v==target:
-                        return i
-                return -1 
-
+          
             sortnums = sorted(nums)
             k = sortnums.index(nums[0]) 
 
