@@ -1,11 +1,19 @@
 class Solution:
     def mySqrt(self, x: int) -> int:
         
-        if x==0 or x==1:
-            return x
-        for n in range(1, x):
+
+        left ,right = 0, x 
+        while left <= right: 
             
-             if n*n == x:
-                return n 
-             if (n+1)*(n+1) >x:
-                    return n 
+            mid = (left+right)//2
+            
+            if mid*mid ==x:
+                return mid 
+            if mid*mid >x:
+                if (mid-1)*(mid-1) <x:
+                    return mid-1
+                right = mid-1
+            if  mid*mid <x:
+                left = mid+1
+        return x 
+                
