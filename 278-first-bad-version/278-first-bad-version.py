@@ -4,8 +4,8 @@
 class Solution:
     def firstBadVersion(self, n: int) -> int:
         
-        if n==1:
-            return 1 
+        #if n==1:
+         #   return 1 
         left , right = 0, n 
         while left <= right: # using = is the point!! 
             
