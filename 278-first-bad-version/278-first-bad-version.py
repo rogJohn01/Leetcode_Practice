@@ -7,7 +7,7 @@ class Solution:
         if n==1:
             return 1 
         left , right = 0, n 
-        while left <= right:
+        while left <= right: # using = is the point!! 
             
             mid = (left+right) //2 
             
