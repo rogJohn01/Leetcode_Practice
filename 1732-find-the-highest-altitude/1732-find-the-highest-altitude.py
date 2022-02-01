@@ -3,9 +3,10 @@ class Solution:
         
         pre = 0
         maxv = -float('inf')
-        ret = [] 
+        ret = [0]
         for i in range(len(gain)):
-            ret.append(pre)
             pre += gain[i]
-        ret.append(pre)
+            ret.append(pre)
+
+        #et.append(pre)
         return  max(ret) 
