@@ -3,7 +3,7 @@ public:
     vector<int> twoSum(vector<int>& nums, int target) {
         
         
-        unordered_map<int, int> hash; 
+        map<int, int> hash; 
         vector<int> ret; 
         
         for(int i=0; i <nums.size(); ++i){
