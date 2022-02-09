@@ -1,14 +1,26 @@
 class Solution:
     def findPairs(self, nums: List[int], k: int) -> int:
         
-        res = 0
+        nums.sort()
+        left =0 
+        right =1
+        cnt = 0 
         
-        counter = Counter(nums)
         
-        for key in counter:
+        while left < len(nums) and right < len(nums):
             
-            if k>0 and key-k in counter:
-                res +=1
-            elif k==0 and counter[key] >1:
-                res +=1 
-        return res
+            if (left ==right or nums[right]- nums[left] < k):
+                right +=1 
+                
+            elif nums[right] - nums[left] >k: 
+                left +=1 
+                
+            
+            else: # matches 
+                left +=1 
+                cnt +=1 
+                
+                while left <len(nums) and right <len(nums) and nums[left] == nums[left-1]:
+                    left +=1 
+        return cnt 
+                
