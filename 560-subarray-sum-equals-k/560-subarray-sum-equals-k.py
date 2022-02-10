@@ -11,8 +11,7 @@ class Solution:
         
         for i in range(len(nums)):
             sumv += nums[i]
-            if (sumv-k) in dic:
-                cnt += dic[sumv-k]
+            cnt += dic.get(sumv-k ,0 )
             dic[sumv] = dic.get(sumv, 0)  +1 
             
         return cnt 
