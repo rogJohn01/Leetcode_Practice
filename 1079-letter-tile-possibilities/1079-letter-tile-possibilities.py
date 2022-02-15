@@ -23,4 +23,4 @@ class Solution:
         for k in range(1, len(tiles)+1):
 
             dfs( [] ,Counter(tiles) ,k ,)
-        return len(ret)
+        return cnt 
