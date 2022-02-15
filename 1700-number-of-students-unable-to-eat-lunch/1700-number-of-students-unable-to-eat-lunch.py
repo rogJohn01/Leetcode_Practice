@@ -7,7 +7,7 @@ class Solution:
 
             cnt = 0 
             left = 0
-            while left < len(stud): 
+            while stud: 
 
                 if stud[left] == sand[0]:
                     stud.popleft()
@@ -15,7 +15,6 @@ class Solution:
 
                 elif sand[0] not in stud:
                     return len(stud)
-
 
                 else: 
                     stud.append( stud.popleft())
