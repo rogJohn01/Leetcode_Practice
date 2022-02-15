@@ -2,14 +2,7 @@ class Solution:
     def flipAndInvertImage(self, image: List[List[int]]) -> List[List[int]]:
             
             def converter(nums):
-                nl = [] 
-                for n in nums:
-                    if n==1:
-                        nl.append(0)
-                    else:
-                        nl.append(1)
-                return nl 
-
+                 return [ 1^n for n in nums]
             ml = [] 
             for im in image:
                 ml.append( converter( im[::-1] ))
