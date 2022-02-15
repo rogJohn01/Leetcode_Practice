@@ -7,7 +7,6 @@ class Solution:
         ret = []
         def dfs(path, cntr ,k):
             global cnt 
-
             if len(path) ==k: 
                 #ret.append(''.join(path))
                 cnt +=1 
