@@ -9,7 +9,7 @@ class Solution:
             global cnt 
 
             if len(path) ==k: 
-                ret.append(''.join(path))
+                #ret.append(''.join(path))
                 cnt +=1 
 
 
