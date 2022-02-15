@@ -18,7 +18,6 @@ class Solution:
 
 
                 else: 
-                    stud.append( stud[0])
-                    stud.popleft()
+                    stud.append( stud.popleft())
 
             return 0 
