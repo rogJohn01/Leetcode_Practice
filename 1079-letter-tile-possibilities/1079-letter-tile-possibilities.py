@@ -1,12 +1,16 @@
 class Solution:
     def numTilePossibilities(self, tiles: str) -> int:
-        cnt =0 
+        
+        global cnt 
+
+        cnt = 0 
         ret = []
         def dfs(path, cntr ,k):
             global cnt 
 
             if len(path) ==k: 
                 ret.append(''.join(path))
+                cnt +=1 
 
 
             for c in cntr: 
@@ -18,5 +22,5 @@ class Solution:
 
         for k in range(1, len(tiles)+1):
 
-            dfs( [] ,Counter(tiles) ,k)
+            dfs( [] ,Counter(tiles) ,k ,)
         return len(ret)
