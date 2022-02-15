@@ -5,11 +5,9 @@ class Solution:
             stud = deque(students)
             sand = deque(sandwiches)
 
-            cnt = 0 
-            left = 0
             while stud: 
 
-                if stud[left] == sand[0]:
+                if stud[0] == sand[0]:
                     stud.popleft()
                     sand.popleft()
 
