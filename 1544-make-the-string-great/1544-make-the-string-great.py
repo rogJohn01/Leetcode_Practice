@@ -3,8 +3,8 @@ class Solution:
         
         
         stack = []
-        stack.append(s[0])
-        for i in range(1,len(s)):
+        #stack.append(s[0])
+        for i in range(len(s)):
             
             if  stack and stack[-1].swapcase() == s[i]:
                 stack.pop()
