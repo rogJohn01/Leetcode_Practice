@@ -1,8 +1,4 @@
 class Solution:
-    
-    #def __init(self):
-     #   self.Found = False 
-    
     def exist(self, board: List[List[str]], word: str) -> bool:
         
             def dfs(ind, i, j):
