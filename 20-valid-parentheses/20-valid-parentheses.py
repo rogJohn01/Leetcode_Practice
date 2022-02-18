@@ -2,15 +2,14 @@ class Solution:
     def isValid(self, s: str) -> bool:
         
         
-        stack = [] 
-        table = { ')':'(', ']':'[' , '}':'{' }
-        
-        
-        for c in s:
-            
-            if c not in table:
-                stack.append(c)
-                
-            elif not stack or stack.pop() != table[c]:
-                return False 
-        return len(stack) == 0
+        stack = []
+        dict = {"]":"[", "}":"{", ")":"("}
+        for char in s:
+            if char in dict.values():
+                stack.append(char)
+            elif char in dict.keys():
+                if stack == [] or dict[char] != stack.pop():
+                    return False
+            else:
+                return False
+        return stack == []
