@@ -2,18 +2,25 @@ class Solution {
 public:
     vector<int> findBuildings(vector<int>& heights) {
         
+        int n = heights.size();
+        vector<int> ans;
+        stack<int> st; 
         
-        vector<int> stack;
-        
-        for(int i =0 ; i< heights.size() ; ++i){
+        for(int i = n-1 ; i >=0; --i){
             
-            while( !stack.empty() && heights[stack.back()] <= heights[i]){
-                stack.pop_back();
+            while( !st.empty() && heights[st.top()] < heights[i]){
+                st.pop();
             }
-            stack.push_back(i);
+            
+            if(st.size() ==0) {
+                ans.push_back(i);
+            }
+            
+            st.push(i);
 
         }       
-        return stack ; 
+        reverse(ans.begin(), ans.end());
+        return ans ; 
         
         
         
