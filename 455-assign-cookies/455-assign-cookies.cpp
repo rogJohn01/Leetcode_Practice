@@ -6,7 +6,7 @@ public:
         sort(s.begin() , s.end()); 
         int cnt = 0;
         int k =0;
-        for(auto s1:s){
+        for(int s1:s){
             
             if( k == g.size()) break; 
             
