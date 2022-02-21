@@ -17,12 +17,10 @@ class Solution:
             dfs(x,y-1)
             
         ret = [] 
-        cnt = 0 
         for i in range(len(grid)):
             for j in range(len(grid[0])):
                 if grid[i][j] ==1:
                     al = 0
                     dfs(i,j )
-                    cnt +=1
                     ret.append(al)
         return max(ret) if ret else  0
