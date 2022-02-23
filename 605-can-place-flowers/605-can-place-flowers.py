@@ -1,23 +1,18 @@
 class Solution:
-    def canPlaceFlowers(self, fl: List[int], n: int) -> bool:
+    def canPlaceFlowers(self, fl: List[int], k: int) -> bool:
         
-         if len(fl) ==1:
-            return 1-fl[0] >=n 
        
+            cnt =0 
+            for i in range(len(fl)):
 
-           
-         fcnt = 0 
-         for i in range( len(fl)-1):
+                if fl[i] ==0:
 
-            if fl[0] ==0 and fl[1]==0:
-                fcnt +=1 
-                fl[0] =1  
+                    el = (i==0) or fl[i-1] ==0
+                    er =  (i == len(fl)-1) or fl[i+1] ==0 
 
-            if  i > 0 and fl[i-1] ==0 and fl[i] ==0 and fl[i+1] ==0: 
-                 fcnt +=1 
-                 fl[i] =1 
-            elif  fl[i-1] ==1 and fl[i] ==0 and i+1 ==len(fl)-1 and fl[i+1]==0: 
-                 fcnt +=1 
-                 fl[i] =1 
-         print(fcnt)
-         return fcnt  >=n
+                    if el and er:
+                        fl[i] =1
+                        cnt +=1 
+                        if cnt >=k:
+                            return True 
+            return cnt >=k
