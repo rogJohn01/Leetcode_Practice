@@ -7,7 +7,7 @@ class Solution:
 
             if x < 0 or x >=R or y <0 or y>=C:
                 return 
-            if (x,y) in seen or not grid[x][y]:
+            if (x,y) in seen or grid[x][y] != 1:
                 return 
 
             seen.add((x,y))
@@ -23,10 +23,11 @@ class Solution:
         R = len(grid) ; C = len(grid[0])
         for i in range(R):
             for j in range(C):
-                curLand = set()
-                rorigin = i
-                corigin = j 
-                dfs(i,j)
-                if curLand:
-                    uniLand.add( frozenset(curLand))
+                if grid[i][j] ==1:
+                    curLand = set()
+                    rorigin = i
+                    corigin = j 
+                    dfs(i,j)
+                    if curLand:
+                        uniLand.add( frozenset(curLand))
         return len(uniLand)
