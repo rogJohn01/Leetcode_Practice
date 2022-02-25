@@ -1,9 +1,11 @@
 class Solution:
     def singleNumber(self, nums: List[int]) -> int:
             
-            cntr = Counter(nums)
+        seen_once = seen_twice = 0 
+        
+        for num in nums:
             
-            for k in cntr.keys():
-                
-                if cntr[k] ==1:
-                    return k 
+            seen_once = ~seen_twice & (seen_once ^ num)
+            seen_twice = ~seen_once & (seen_twice ^ num)
+        
+        return seen_once 
