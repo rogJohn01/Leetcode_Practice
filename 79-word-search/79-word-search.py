@@ -21,6 +21,8 @@ class Solution:
             m, n, k = len(board), len(board[0]), len(word)
 
             for i, j in product(range(m), range(n)):
-                if self.Found: return True          #early stop if word is found
-                dfs(0, i, j)
+                if self.Found: 
+                    return True    
+                if board[i][j] ==word[0]:      #early stop if word is found
+                    dfs(0, i, j)
             return self.Found
