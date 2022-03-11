@@ -1,15 +1,21 @@
 class Solution:
     def minMeetingRooms(self, intervals: List[List[int]]) -> int:
+        
+        
+        start = sorted([ e[0] for e in intervals])
+        end = sorted( [e[1] for e in intervals] )
 
-        freeRoom = [] 
+        sp = 0 
+        ep = 0 
 
-        intervals.sort(key = lambda x:x[0])
+        usedRoom = 0 
 
-        heapq.heappush(freeRoom , intervals[0][1])
+        while sp < len(start):
 
-        for i in intervals[1:]:
+            if start[sp] >= end[ep]:
+                usedRoom -=1 
+                ep +=1 
 
-            if freeRoom[0] <= i[0]:
-                heapq.heappop(freeRoom)
-            heapq.heappush(freeRoom , i[1])
-        return len(freeRoom)
+            usedRoom +=1 
+            sp +=1 
+        return usedRoom 
