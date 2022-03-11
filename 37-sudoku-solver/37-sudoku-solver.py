@@ -19,7 +19,7 @@ class Solution:
                  return True 
              r,c = visit[0]
              t = (r//3, c //3 )
-             for dig in {"1", "2", "3", "4", "5", "6", "7", "8", "9"}:
+             for dig in { str(e) for e in range(1,10) }:
                  if dig not in rows[r] and dig not in cols[c] and dig not in triples[t]:
                      board[r][c] = dig 
                      rows[r].add(dig)
