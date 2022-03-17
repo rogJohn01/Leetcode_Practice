@@ -2,20 +2,23 @@
 class Solution:
     def minRemoveToMakeValid(self, s: str) -> str:
 
-        def delete_invalid_closing(string, open_symbol, close_symbol):
-            sb = []
-            balance = 0
-            for c in string:
-                if c == open_symbol:
-                    balance += 1
-                if c == close_symbol:
-                    if balance == 0:
-                        continue
-                    balance -= 1
-                sb.append(c)
-            return "".join(sb)
+        
+        st = [] 
+        s = [ e for e in s]
+        for i in range(len(s)):
 
-        # Note that s[::-1] gets the reverse of s.
-        s = delete_invalid_closing(s, "(", ")")
-        s = delete_invalid_closing(s[::-1], ")", "(")
-        return s[::-1]
+            if s[i] =='(':
+                st.append(i)
+            if s[i] == ')':
+
+                if st:
+                    st.pop()
+                else:
+                    s[i] = '#'
+
+        while st:
+            s[st.pop()] = '#'
+
+        s = ''.join(s)
+        s = s.replace('#','')
+        return s
