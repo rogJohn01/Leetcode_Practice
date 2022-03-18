@@ -1,25 +1,17 @@
-class Solution:
-    def reverse(self, x: int) -> int:
-        
-        if x ==0:
-            return 0 
-        
-        minus = False 
-        if str(x)[0] =='-':
-            
-            minus = True 
-            x = str(x)[1:]
-            
-        
-        if str(x)[-1] == '0':
-            x = str(x)[:-1]
-        
-        x = int( str(x)[::-1] )        
-        
-        if x >= (2**31 -1):
-            return 0 
-        
-        return  -x if minus else x
-        
-       
-        # test case ->  x = -120 
+
+
+
+class Solution {
+public:
+    int reverse(int x) {
+        int rev = 0;
+        while (x != 0) {
+            int pop = x % 10;
+            x /= 10;
+            if (rev > INT_MAX/10 || (rev == INT_MAX / 10 && pop > 7)) return 0;
+            if (rev < INT_MIN/10 || (rev == INT_MIN / 10 && pop < -8)) return 0;
+            rev = rev * 10 + pop;
+        }
+        return rev;
+    }
+};
