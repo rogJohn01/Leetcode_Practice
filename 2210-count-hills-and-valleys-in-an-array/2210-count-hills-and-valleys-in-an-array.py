@@ -1,29 +1,27 @@
-class Solution {
-public:
-    int countHillValley(vector<int>& nums) {
+class Solution:
+    def countHillValley(self, nums: List[int]) -> int:
         
-        
-        
-	vector<int> vec ;
+            cnt = 0 
+            ln = len(nums)
+            for i in range(1,  ln):
 
-	vec.push_back(nums[0]);
+                if nums[i] == nums[i-1]: 
+                    continue 
 
-	for (int i=1; i <nums.size(); i++){
-		if (nums[i] != nums[i-1]){
-			vec.push_back(nums[i]); // the second, not the first ?
-		}
-	}
+                lp = i-1 ; rp = i+1 
+                while  lp>=0 and nums[lp] ==nums[i]:
+                    lp -=1 
+                if lp < 0:
+                        continue 
+                while rp < ln  and nums[i] == nums[rp]:
+                    rp +=1 
+                if rp >= ln:
+                    continue
 
-	int cnt =0 ; 
+                if nums[lp] < nums[i] and nums[i] > nums[rp]:
+                    cnt +=1 
+                elif nums[lp] > nums[i] and nums[i] < nums[rp]:
+                    cnt +=1 
 
-	for ( int i=1; i< vec.size()-1; i++ ){
-		if (vec[i] >vec[i-1] and vec[i] > vec[i+1] ) cnt ++; 
+            return cnt 
 
-		else if (vec[i] <vec[i-1] and vec[i] < vec[i+1]) cnt ++; 
-
-	}
-	return cnt ; 
-
-
-    }
-};
