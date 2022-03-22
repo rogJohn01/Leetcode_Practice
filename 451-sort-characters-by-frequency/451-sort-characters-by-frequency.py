@@ -1,10 +1,16 @@
 class Solution:
     def frequencySort(self, s: str) -> str:
         
-        temp = []
-        for v, k in Counter(s).most_common():
 
-                #while k:
-                    temp.append(v*k)
-                    k -=1
-        return ''.join(temp)
+
+        cntr = Counter(s)
+
+        heap = [(-v,k) for k ,v in cntr.items()]
+        heapq.heapify(heap)
+
+        res = [] 
+        while heap:
+
+            v, k = heapq.heappop(heap)
+            res += [k]* -v 
+        return ''.join(res)
