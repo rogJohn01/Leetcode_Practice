@@ -4,7 +4,7 @@ class Solution:
         temp = []
         for v, k in Counter(s).most_common():
 
-                while k:
-                    temp.append(v)
+                #while k:
+                    temp.append(v*k)
                     k -=1
         return ''.join(temp)
