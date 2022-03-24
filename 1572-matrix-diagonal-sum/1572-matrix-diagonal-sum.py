@@ -2,6 +2,8 @@ class Solution:
     def diagonalSum(self, mat: List[List[int]]) -> int:
         
         n = len(mat)
+        if n==1:
+            return mat[0][0]
         cnt = 0 
         left =0 ; right = len(mat[0])-1 
         while left <n and right > 0:
@@ -14,7 +16,6 @@ class Solution:
         
         if n&1 ==1 and n!=1:
             cnt -= mat[n//2][n//2]
-        if n==1:
-            return mat[0][0]
+  
 
         return cnt 
