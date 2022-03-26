@@ -1,6 +1,7 @@
 
-SELECT player_id, device_id
-FROM Activity
-WHERE (player_id,event_date) IN (SELECT player_id, MIN(event_date)
-FROM Activity
-GROUP BY player_id)
+select player_id, device_id 
+from activity 
+where (player_id , event_date) in (select player_id ,
+ min(event_date) from activity 
+ group by player_id )
+
