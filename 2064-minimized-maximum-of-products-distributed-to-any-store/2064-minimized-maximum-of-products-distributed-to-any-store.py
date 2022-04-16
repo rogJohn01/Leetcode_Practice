@@ -5,15 +5,12 @@ class Solution:
 
 
 
-        l = 0  ; r = max(quant)
+        l = 1  ; r = max(quant)
 
         minv = max(quant)
-        while l <=r:
+        while l <r:
             cnt = k     
             m = (l+r ) >>1
-            if m ==0:
-                l = m +1
-                continue 
             
             for q in quant:
                     
@@ -21,11 +18,11 @@ class Solution:
                 cnt -= math.ceil(q) 
 
             if cnt  >=  0:
-                r = m -1  
+                r = m 
                 minv = min( minv , m ) 
             else: 
                 l = m +1  
 
-        return minv 
+        return l 
 
 
