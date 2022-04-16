@@ -28,4 +28,4 @@ class Solution:
             else:
                 l = mdays +1 
 
-        return h  if checkDay(h,m,k) else -1 
+        return l  if checkDay(h,m,k) else -1 
