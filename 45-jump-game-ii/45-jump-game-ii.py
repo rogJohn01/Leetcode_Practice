@@ -1,13 +1,12 @@
 class Solution:
     def jump(self, nums: List[int]) -> int:
-
-        nl = len(nums)
-        dp = [0]*100000
-
-        for c in range(nl-1): 
-            for i in range(1, nums[c]+1):
-                    if dp[c+i] !=0:
-                        dp[c+i] = min(dp[c+i],dp[c]+1)
-                    else:
-                        dp[c+i] = dp[c] +1 
-        return dp[nl-1] 
+        n = len(nums)
+        dp = [math.inf] * n
+        dp[n-1] = 0
+        
+        for i in range(n-2, -1, -1):
+            maxJump = min(i+nums[i], n-1)
+            for j in range(i+1, maxJump+1):
+                dp[i] = min(dp[i], dp[j] + 1)
+                
+        return dp[0]
