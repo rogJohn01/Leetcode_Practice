@@ -2,7 +2,7 @@ class Solution:
     def jump(self, nums: List[int]) -> int:
 
         nl = len(nums)
-        dp = [0]*(nl) 
+        dp = [0]*10000
 
         for c in range(nl-1): 
             for i in range(1, nums[c]+1):
@@ -11,4 +11,4 @@ class Solution:
                         dp[c+i] = min(dp[c+i],dp[c]+1)
                     else:
                         dp[c+i] = dp[c] +1 
-        return dp[-1] 
+        return dp[nl-1] 
