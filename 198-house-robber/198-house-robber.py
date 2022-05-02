@@ -11,4 +11,5 @@ class Solution:
         for i in range(2,len(nums)):
             bounty[i] = max(bounty[i-2]+nums[i], bounty[i-1])
         
-        return max(bounty)
+        print(bounty)
+        return bounty[-1]
