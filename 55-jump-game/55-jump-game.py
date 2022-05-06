@@ -1,9 +1,10 @@
 class Solution:
     def canJump(self, nums: List[int]) -> bool:
-       
-        m = 0 
-        for i, n in enumerate(nums):
-            if i > m:
-                return False 
-            m = max(m , i+n)
-        return True 
+        
+        ln = len(nums)
+        goal = ln -1 
+        for i in range(ln-1, -1,-1):
+            if i+nums[i] >= goal:
+                goal = i 
+        
+        return goal ==0 
