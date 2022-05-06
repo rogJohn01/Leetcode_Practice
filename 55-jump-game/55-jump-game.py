@@ -3,7 +3,7 @@ class Solution:
         
         ln = len(nums)
         goal = ln -1 
-        for i in range(ln-1, -1,-1):
+        for i in range(ln-1)[::-1]: 
             if i+nums[i] >= goal:
                 goal = i 
         
