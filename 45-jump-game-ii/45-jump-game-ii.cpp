@@ -2,18 +2,21 @@ class Solution {
 public:
     int jump(vector<int>& nums) {
 
+     
+    int jumpend =0 ;
+    int furthest =0; 
+    int jump = 0 ; 
+    int i = 0 ; 
+    while(i < nums.size()-1 ) {
         
-         
-    int n = size(nums); 
-    vector<int> dp(n,10001) ; 
-    dp[n-1] = 0 ; 
-    for (int i = n-2; i >=0; i--) {
-        for (int j =1 ;  j <=nums[i] ; j++ ) {
-            dp[i] = min( dp[i] , 1+ dp[ min(n-1 , i+ j) ] );
-        }
-    }
-    return dp[0] ; 
+        furthest = max(furthest , i+nums[i] ) ; 
+        if ( i ==jumpend){
+            jumpend = furthest ;
+            jump ++;  }
 
+        i++; }
+
+    return jump; 
 
         
         
