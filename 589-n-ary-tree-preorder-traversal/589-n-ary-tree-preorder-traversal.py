@@ -11,12 +11,12 @@ class Solution:
         
         
         
-        if root is None:
-            return []
-
-        stack , output = [root,] , [] 
-        while stack: 
-            root = stack.pop() 
-            output.append(root.val)
-            stack.extend(root.children[::-1])
-        return output 
+        newlist = []
+        def traverse(root):
+            if root:
+                newlist.append(root.val)
+                for child in root.children:
+                    traverse(child)
+                
+        traverse(root)
+        return newlist
