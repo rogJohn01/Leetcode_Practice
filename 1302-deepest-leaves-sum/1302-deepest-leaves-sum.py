@@ -9,13 +9,13 @@ class Solution:
         
 
 
-        q = deque([(root, 0),] ) 
+        st = [ (root, 0) ] 
         maxdep = 0 
         totv = 0 
-        while q: 
 
-            node , dep = q.popleft() 
+        while st: 
 
+            node , dep = st.pop() 
             if node.left is None and node.right is None: 
 
                 if maxdep < dep:
@@ -24,13 +24,11 @@ class Solution:
 
                 elif  maxdep ==dep: 
                     totv += node.val 
-
-
             else:
 
                 if node.left:
-                    q.append([node.left , dep+1 ]) 
+                    st.append([node.left , dep+1 ]) 
                 if node.right: 
-                    q.append([node.right , dep+1 ]) 
+                    st.append([node.right , dep+1 ]) 
 
         return totv 
