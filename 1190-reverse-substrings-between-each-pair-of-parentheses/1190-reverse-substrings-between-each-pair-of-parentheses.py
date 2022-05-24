@@ -1,6 +1,7 @@
 class Solution:
     def reverseParentheses(self, s: str) -> str:
             
+
         st= [] 
         box = [] 
         ss = [] 
@@ -14,22 +15,13 @@ class Solution:
 
             ss.append(e) 
 
-        def twopointer(l,r,s):
-
-            while l <r: 
-                s[l] , s[r] = s[r] , s[l] 
-                l +=1 ; r -=1 
-
-            return s 
-
         for l,r in box: 
-            twopointer(l,r,ss) 
+            ss[l:r] = ss[l:r][::-1] 
 
         tmp = [] 
         for e in ss:
             if e.isalpha():
                 tmp.append(e) 
 
-        return ''.join(tmp) 
+        return ''.join(tmp)  
 
-        
