@@ -3,17 +3,17 @@ class Solution:
         
         
 
-        bit = [0]*24
+        bit = [0]*25
         for can in candidates: 
 
-            x = 0  
+            x = 24  
             while can: 
 
                 if can &1 ==1: 
 
                     bit[x] +=1 
                 can = can >>1 
-                x +=1 
+                x -=1 
         
         return max(bit)
 
