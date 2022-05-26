@@ -5,9 +5,10 @@ public:
         int Xor = ( x ^ y) ; 
         int dist = 0 ; 
         while (Xor) { 
-            dist ++ ; 
-            Xor = Xor & (Xor-1) ; } 
-
+            if (Xor &1)
+                dist ++ ; 
+            Xor = Xor >>1 ; }
+            
         return dist ;
         
 
