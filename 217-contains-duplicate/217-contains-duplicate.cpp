@@ -1,15 +1,13 @@
 class Solution {
-public:
-    bool containsDuplicate(vector<int>& nums) {
-        set<int> seen; 
-
-    for(auto& n:nums){ 
+    public boolean containsDuplicate(int[] nums) {
+     
+        Arrays.sort(nums) ;
+        for(int i=0; i < nums.length -1; i++){
+            if( nums[i] == nums[i+1]) 
+                return true ; 
+        }
+        return false ; 
         
-        if ( seen.find(n) != seen.end()) return true ; 
-        seen.insert(n) ;   } 
-    return false ; 
-
-
-
+        
     }
-};
+}
