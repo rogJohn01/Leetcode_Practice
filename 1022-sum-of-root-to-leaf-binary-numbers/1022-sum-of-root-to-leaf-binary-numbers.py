@@ -10,7 +10,7 @@ class Solution:
 
 
         tot = 0 
-        st = [(root,str(root.val))] 
+        st = [[root,str(root.val)]] 
 
         while st: 
             node , path = st.pop()
