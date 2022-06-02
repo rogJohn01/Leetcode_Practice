@@ -10,13 +10,15 @@ class Solution:
     def postorder(self, root: 'Node') -> List[int]:
         if root is None:
             return []
-        
-        stack , output = [root,] , [] 
-        while stack:
-            root = stack.pop()
-            if root is not None:
-                output.append(root.val)
-            for c in root.children:
-                stack.append(c)
-                
-        return output[::-1]
+       
+
+        st = [root] 
+        path = [] 
+
+        while st: 
+            node = st.pop()
+            path.append(node.val) 
+            for child in node.children: 
+                st.append(child) 
+
+        return path[::-1] 
