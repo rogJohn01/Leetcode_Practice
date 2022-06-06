@@ -9,23 +9,21 @@ class Solution:
         
 
         st = [[root,0]]
-        ans = [] 
-        dic = defaultdict(int)
-        cntd = defaultdict(int)
-        while st: 
+        ans = []
+        cntr = [] 
+        while st:
             node , dep = st.pop()
-            
-          
-            dic[dep] += node.val 
-            cntd[dep] +=1 
-            
-            if node.left: 
+
+            if dep+1 > len(ans):
+                ans.append(0)
+            if dep+1 > len(cntr): 
+                cntr.append(0)
+            cntr[dep] +=1
+            ans[dep] += node.val 
+            if node.left:
                 st.append([node.left, dep+1])
             if node.right:
                 st.append([node.right ,dep+1])
-        mdep = max(dic.keys())
-        for d in range(mdep+1):
-            dic[d] /= cntd[d]
-        for k ,v in dic.items():
-            ans.append(v)
-        return ans 
+        for d in range(len(ans)):
+            ans[d] /= cntr[d]
+        return ans
