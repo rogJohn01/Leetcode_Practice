@@ -1,39 +1,48 @@
 from collections import defaultdict
 class Solution:
-    def solveSudoku(self, board):
+    def solveSudoku(self, mat):
        
-         rows , cols  = defaultdict(set) , defaultdict(set)
-         triples ,visit = defaultdict(set), deque([])
 
-         for r in range(9):
-             for c in range(9):
-                 if board[r][c] != '.':
-                     rows[r].add(board[r][c])
-                     cols[c].add(board[r][c])
-                     triples[(r//3,c//3)].add(board[r][c])
-                 else: 
-                     visit.append((r,c))
+        row = defaultdict(list)
+        col = defaultdict(list) 
+        box = defaultdict(list) 
+        cnt = 0 
+        R = C = 9
+        for r in range(R):
+            for c in range(C):
+                if mat[r][c] !='.':
+                    n = mat[r][c] 
+                    row[r].append(n) 
+                    col[c].append(n) 
+                    box[(r//3, c//3)].append(n)
+                    cnt +=1 
 
-         def dfs():
-             if not visit:
-                 return True 
-             r,c = visit[0]
-             t = (r//3, c //3 )
-             for dig in { str(e) for e in range(1,10) }:
-                 if dig not in rows[r] and dig not in cols[c] and dig not in triples[t]:
-                     board[r][c] = dig 
-                     rows[r].add(dig)
-                     cols[c].add(dig)
-                     triples[t].add(dig)
-                     visit.popleft()
-                     if dfs():
-                         return True 
-                     else:
-                         board[r][c] = '.'
-                         rows[r].discard(dig)
-                         cols[c].discard(dig)
-                         triples[t].discard(dig)
-                         visit.appendleft((r,c))
-             return False 
-         dfs()
+        left = 81-cnt 
+        def backtrack(lc):
 
+            if lc == left:
+                return mat 
+
+            for r in range(R):
+                for c in range(C):
+                    if mat[r][c] =='.':
+
+                        dup = True 
+                        for i in range(1,10): 
+                            i = str(i)
+                            if i not in row[r] and i not in col[c] and i not in box[(r//3, c//3)]:
+                                dup = False 
+                                row[r].append(i)
+                                col[c].append(i) 
+                                box[(r//3,c//3)].append(i) 
+                                mat[r][c] = str(i)  
+                                if backtrack(lc+1):
+                                    return True 
+                                row[r].pop()
+                                col[c].pop()
+                                box[(r//3,c//3)].pop() 
+                                mat[r][c] = '.'
+                        return False 
+
+        backtrack(0)
+        return mat 
