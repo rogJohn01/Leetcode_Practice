@@ -5,7 +5,6 @@ class Solution:
         dic = {} 
         start = maxl = 0 
         for i, e in enumerate(s):
-
             if e in dic and  start <= dic[e]:
                 start = dic[e] +1 
             else:
