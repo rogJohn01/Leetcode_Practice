@@ -1,1 +1,1 @@
-​
+E.g. For the example of ( ( ) ( ( ) ) ), with the stack method, we are calculating the inner structure ( ) ( ( ) ) first and then multiplying the score by 2. With the 3rd method, by knowing the depth of the core, we are actually performing this calculation ( ( ) ) + ( ( ( ) ) )
