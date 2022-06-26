@@ -2,17 +2,17 @@ class Solution:
     def maxScore(self, nums: List[int], k: int) -> int:
         
 
-        prel = []
+        prel = [0]*len(nums)
         pf = 0 
-        for n in nums: 
+        for i,n in enumerate(nums): 
             pf += n
-            prel.append(pf)
+            prel[i] = pf 
 
-        prer = [] 
+        prer = [0]*len(nums)
         pf = 0
-        for n in nums[::-1]:
+        for i,n in enumerate(nums[::-1]):
             pf +=n 
-            prer.append(pf) 
+            prer[i] = pf  
 
         maxv = 0 
         for i in range(k+1):
