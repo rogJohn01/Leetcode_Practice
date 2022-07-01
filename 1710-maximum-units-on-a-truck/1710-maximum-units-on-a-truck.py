@@ -5,14 +5,10 @@ class Solution:
         bxload = uload = 0 
         for bx , un in boxTypes: 
             if bxload < truckSize: 
-                if bxload +bx < truckSize: 
-                    bxload += bx 
-                    uload += bx*un 
-                else: 
-                    dif = truckSize - bxload 
-                    uload += un*dif 
-                    break 
-    
+                dif = bx  if bxload +bx < truckSize else truckSize - bxload
+                bxload += dif 
+                uload += dif*un 
+                
             else:
                 break 
         
