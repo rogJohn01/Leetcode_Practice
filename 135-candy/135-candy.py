@@ -1,13 +1,15 @@
 class Solution:
-    def candy(self, R):
-        n, ans = len(R), [1]*len(R)
+    def candy(self, ra: List[int]) -> int:
         
-        for i in range(n-1):
-            if R[i] < R[i+1]:
-                ans[i+1] = max(1 + ans[i], ans[i+1])
-                
-        for i in range(n-2, -1, -1):
-            if R[i+1] < R[i]:
-                ans[i] = max(1 + ans[i+1], ans[i])
-        
+        ans  = [1]*len(ra)
+        for i in range(1,len(ra)): 
+
+            if ra[i-1] < ra[i]: 
+                ans[i] = ans[i-1]+1  
+
+        for i in range(len(ra)-1,0,-1):
+
+            if ra[i-1] > ra[i]:
+                ans[i-1] = max( ans[i-1] ,ans[i] +1 )
+
         return sum(ans)
