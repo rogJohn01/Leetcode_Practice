@@ -12,7 +12,6 @@ class Solution:
         q = deque()
         q.append([root,0])
         
-        
         while q: 
             node,dep = q.popleft() 
             dic[dep].append(node.val)
@@ -23,7 +22,4 @@ class Solution:
             if node.right:
                 q.append([node.right, dep+1])
         
-        ans = [ v[-1] for k,v in dic.items() ] 
-        
-                
-        return ans 
+        return [ v[-1] for k,v in dic.items() ] 
