@@ -8,18 +8,18 @@ class Solution:
     def levelOrderBottom(self, root: Optional[TreeNode]) -> List[List[int]]:
         
         
-        ans = [] 
-        if not root: return ans 
-        
-        def helper(node,dep):
+        ans = []
+        if not root: return ans
+
+        def dfs(node,dep):
             if len(ans) == dep:
                 ans.append([])
-            
+
             ans[dep].append(node.val)
-            
-            if node.left: helper(node.left ,dep+1)
-            if node.right: helper(node.right ,dep+1)
-        
-        helper(root, 0) 
+
+            if node.left: dfs(node.left ,dep+1)
+            if node.right: dfs(node.right ,dep+1)
+
+        dfs(root, 0)
         return ans[::-1]
                 
