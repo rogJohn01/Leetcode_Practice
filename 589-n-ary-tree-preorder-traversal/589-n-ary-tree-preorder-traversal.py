@@ -9,14 +9,13 @@ class Node:
 class Solution:
     def preorder(self, root: 'Node') -> List[int]:
         
+        if not root: return [] 
         
-        
-        newlist = []
-        def traverse(root):
-            if root:
-                newlist.append(root.val)
-                for child in root.children:
-                    traverse(child)
+        st = [root] 
+        path = [] 
+        while st:
+            node = st.pop() 
+            path.append(node.val) 
+            st.extend(node.children[::-1])
                 
-        traverse(root)
-        return newlist
+        return path
