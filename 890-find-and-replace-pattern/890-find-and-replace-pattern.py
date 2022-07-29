@@ -11,7 +11,7 @@ class Solution:
             for i,p in enumerate(pattern): 
 
 
-                if word[i] in dic.values() and rdic[word[i]] !=p:
+                if word[i] in rdic and rdic[word[i]] !=p:
                     jp = True 
                     break 
 
