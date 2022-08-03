@@ -1,27 +1,25 @@
 class MyCalendar {
-public:
+    List<int[]> cal ; 
     
-    map<int,int>events;
-
-    MyCalendar() {
+    
+    public MyCalendar() {
+        cal = new ArrayList() ; 
         
     }
     
-    bool book(int start, int end) {
+    public boolean book(int s, int e) {
         
-    auto nx = events.upper_bound(start) ; 
-    if(nx != events.end() && (*nx).second < end) return false ; 
-    events.insert({end, start}) ; 
-    return true ; 
-
-
-        
+        for(int[] se: cal){
+            if(se[0] < e && s < se[1] ) return false ; 
+        }
+        cal.add(new int[]{s ,e }) ;
+        return true ; 
         
     }
-};
+}
 
 /**
  * Your MyCalendar object will be instantiated and called as such:
- * MyCalendar* obj = new MyCalendar();
- * bool param_1 = obj->book(start,end);
+ * MyCalendar obj = new MyCalendar();
+ * boolean param_1 = obj.book(start,end);
  */
