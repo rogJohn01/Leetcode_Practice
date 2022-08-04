@@ -4,20 +4,17 @@ class Solution:
         
         corner = {(0,p):2 , (p,p):1 , (p,0):0  }
         [cx , cy] = [ p, q ] 
-        rev = False 
+        rev = 1
         while True: 
 
             if (cx,cy) in corner.keys():
                 return  corner[(cx,cy)] 
 
             cx =  0  if cx ==p else p
-            if rev: 
-                cy -=q 
-            else: 
-                cy += q
+            cy += rev*q
             if cy > p: 
                 cy = p - (cy-p)
-                rev = True 
+                rev *= -1 
             elif cy < 0: 
                 cy = -cy 
-                rev = False 
+                rev *= -1 
