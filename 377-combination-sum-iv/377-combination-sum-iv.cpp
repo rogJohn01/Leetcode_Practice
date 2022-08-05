@@ -13,7 +13,7 @@ public:
 
         dp[tar] = 0 ; 
 
-        for(auto& n:nums){
+        for(auto n:nums){
             if( tar- n >=0){
                 dp[tar] +=  dfs(nums, tar-n , dp); 
             }}
