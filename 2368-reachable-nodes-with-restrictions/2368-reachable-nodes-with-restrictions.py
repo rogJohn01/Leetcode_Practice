@@ -3,9 +3,9 @@ class Solution:
         
         from collections import defaultdict 
         graph = defaultdict(list)
-        rst = set(rst) 
+        seen = set(rst) 
         for x, y in edges:
-            if (x in rst) or( y in rst):
+            if (x in seen) or( y in seen):
                 continue 
             graph[x].append(y)
             graph[y].append(x) 
@@ -14,15 +14,15 @@ class Solution:
         ans =0 
         def dfs(v):
             global ans 
-
-            visit[v] =1 
+            
+            seen.add(v) 
             ans +=1 
             for nv in graph[v]: 
-                if not visit[nv]: #and nv not in rst: 
+                if nv not in seen: 
                     dfs(nv) 
 
 
 
-        visit = [0]*n 
+        
         dfs(0)
         return ans 
