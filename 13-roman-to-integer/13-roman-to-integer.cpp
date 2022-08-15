@@ -1,14 +1,14 @@
-class Solution {
-public:
-    int romanToInt(string s) {
-     
-        unordered_map<char, int> mp = {{'M', 1000}, {'D', 500}, {'C', 100}, {'L', 50}, {'X', 10}, {'V', 5}, {'I', 1}};
-        int ans = mp[s.back()] ;
-        for(int i=0 ; i < s.size()-1 ; i++){
-            if( mp[s[i]] < mp[s[i+1]] ) ans -= mp[s[i]] ;
-            else ans += mp[s[i]] ; }
-        return ans ; 
+class Solution:
+    def romanToInt(self, s: str) -> int:
+        
+        
+        dic =  { 'I':1 , 'V':5 , 'X':10, 'L':50 ,'C':100,'D':500,'M':1000  }    
+        count = 0 
+        for i in range(len(s)-1):
 
-    
-    }
-};
+            if dic[s[i]] < dic[s[i+1]]:
+                count -= dic[s[i]]
+            else: 
+                count += dic[s[i]] 
+        return count + dic[s[-1]]
+
