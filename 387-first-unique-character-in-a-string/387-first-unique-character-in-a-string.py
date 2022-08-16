@@ -1,7 +1,6 @@
 class Solution:
     def firstUniqChar(self, s: str) -> int:
         
-        dic = defaultdict(list)
         first = defaultdict(int)
         inf = float('inf')
         for i,e in enumerate(s): 
