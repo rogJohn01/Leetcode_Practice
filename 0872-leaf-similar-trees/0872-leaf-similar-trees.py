@@ -8,20 +8,20 @@ class Solution:
     def leafSimilar(self, root1: Optional[TreeNode], root2: Optional[TreeNode]) -> bool:
 
 
-        def bfs(root): 
+
+        def dfs(node, ans):
 
 
-            st = [root] 
-            ans = [] 
-            while st: 
-                node = st.pop() 
-                if node.left: 
-                    st.append(node.left)
-                if node.right: 
-                    st.append(node.right) 
-                if not node.left and not node.right: 
-                    ans.append(node.val) 
+            if not node.left and not node.right: 
+                ans.append(node.val) 
 
-            return ans 
+            if node.left:
+                dfs(node.left ,ans)
+            if node.right: 
+                dfs(node.right , ans)
 
-        return bfs(root1) == bfs(root2)
+        ans1 = [] ;  ans2 = [] 
+        dfs(root1,ans1 )
+        dfs(root2 , ans2 ) 
+        return ans1 == ans2 
+
