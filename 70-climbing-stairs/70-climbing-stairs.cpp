@@ -16,3 +16,5 @@ public:
         return third ; 
     }
 };
+
+// This approach uses O(1) space.(If the test case condition is larger than 45) 
