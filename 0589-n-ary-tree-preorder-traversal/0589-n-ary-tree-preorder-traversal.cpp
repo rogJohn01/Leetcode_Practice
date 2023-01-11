@@ -27,7 +27,7 @@ public:
         if(node == nullptr) return ;
         
         ans.push_back(node->val);
-        for(auto child:node->children)
+        for(Node* child:node->children)
             dfs(child) ; 
     }
     
