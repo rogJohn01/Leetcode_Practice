@@ -19,7 +19,7 @@
 <p>Return <em>the lexicographically smallest equivalent string of </em><code>baseStr</code><em> by using the equivalency information from </em><code>s1</code><em> and </em><code>s2</code>.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre><strong>Input:</strong> s1 = "parker", s2 = "morris", baseStr = "parser"
 <strong>Output:</strong> "makkek"
@@ -28,7 +28,7 @@ The characters in each group are equivalent and sorted in lexicographical order.
 So the answer is "makkek".
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre><strong>Input:</strong> s1 = "hello", s2 = "world", baseStr = "hold"
 <strong>Output:</strong> "hdld"
@@ -36,7 +36,7 @@ So the answer is "makkek".
 So only the second letter 'o' in baseStr is changed to 'd', the answer is "hdld".
 </pre>
 
-<p><strong>Example 3:</strong></p>
+<p><strong class="example">Example 3:</strong></p>
 
 <pre><strong>Input:</strong> s1 = "leetcode", s2 = "programs", baseStr = "sourcecode"
 <strong>Output:</strong> "aauaaaaada"
