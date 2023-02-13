@@ -13,12 +13,8 @@ public:
         if( ifeven(low) && ifeven(high))
             return (high-low)/2 ; 
         
-        if( ifeven(low) || ifeven(high))
-            return (high-low)/2 +1 ; 
+        return (high-low)/2 +1 ; 
         
-        if( !ifeven(low) && !ifeven(high))
-             return (high-low)/2 +1 ; 
-        
-        return 0 ; 
+        //return 0 ; 
         }
 };
