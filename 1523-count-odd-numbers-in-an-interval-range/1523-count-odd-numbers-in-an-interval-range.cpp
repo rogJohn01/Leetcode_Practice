@@ -1,16 +1,10 @@
 class Solution {
 public:
     
-    bool ifeven(int x){
-        if(x % 2==0){
-            return true ;
-        }return false ; 
-    }
-    
     
     int countOdds(int low, int high) {
         
-        if( ifeven(low) && ifeven(high))
+        if( low %2==0 &&  high %2 ==0 ) 
             return (high-low)/2 ; 
         
         return (high-low)/2 +1 ; 
