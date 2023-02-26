@@ -1,17 +1,18 @@
-class Solution {
-    fun maxProfit(prices: IntArray): Int {
-        
-        if(prices.isEmpty()) return 0 
+/**
+ * @param {number[]} prices
+ * @return {number}
+ */
+var maxProfit = function(prices) {
+    
+    let minv = prices[0] ; 
+	let profit = 0 ; 
+	for(let i=0 ; i < prices.length ;  i++){
+		if(prices[i] < minv ){
+			minv = prices[i]
+		} else if ( prices[i] - minv  > profit ){
+			profit = prices[i] - minv ; 
+		}
+	} return profit ; 
 
-        var mxProfit = 0 
-        var lowprice = prices[0]
 
-        for(price in prices){
-            lowprice = kotlin.math.min(lowprice ,price)
-            var profit = price - lowprice 
-            mxProfit = kotlin.math.max(mxProfit , profit)
-        }
-        return mxProfit 
-
-    }
-}
+};
