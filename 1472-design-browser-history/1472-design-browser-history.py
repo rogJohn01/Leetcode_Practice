@@ -1,38 +1,47 @@
 
-class ddlNode:   # think node as a struct in golang ! 
-    def __init__(self , url):
-        self.date = url 
+
+
+class dlnode:
+
+    def __init__(self , data ):
+        self.val = data 
         self.prev = None 
         self.next = None 
 
-    
+
 
 class BrowserHistory:
-    
+
     def __init__(self, homepage: str):
-        self.ll_head = ddlNode(homepage)
-        self.current = self.ll_head 
+        self.head  = dlnode(homepage)
+        self.curr = self.head
 
     def visit(self, url: str) -> None:
-        node = ddlNode(url)
-        self.current.next  = node  # below 3lines are about swapping | the structure similar to trie! 
-        node.prev = self.current 
-        self.current = node  
+        node = dlnode(url)
+        self.curr.next = node 
+        node.prev = self.curr 
+        self.curr = node 
+
 
     def back(self, steps: int) -> str:
-        
-        while steps and self.current.prev: 
-            self.current = self.current.prev 
-            steps -=1 
-        return self.current.date
 
+        while steps and self.curr.prev: 
+            self.curr = self.curr.prev 
+            steps -=1 
+        return self.curr.val 
+        
 
     def forward(self, steps: int) -> str:
 
-        while steps and self.current.next: 
-            self.current = self.current.next
+        while steps and self.curr.next: 
+            self.curr = self.curr.next 
             steps -=1 
-        return self.current.date 
-
-
+        return self.curr.val 
         
+
+
+# Your BrowserHistory object will be instantiated and called as such:
+# obj = BrowserHistory(homepage)
+# obj.visit(url)
+# param_2 = obj.back(steps)
+# param_3 = obj.forward(steps)
