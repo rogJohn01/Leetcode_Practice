@@ -4,7 +4,7 @@ class Solution {
 
     public int fib(int n) {
     
-        
+        Arrays.fill(dp, -1) ;     
         return dfs(n) ; 
         
     }
@@ -15,6 +15,7 @@ class Solution {
         if(x==0){
             return 0; 
         }
+        if(dp[x] !=-1) return dp[x]; 
         
         dp[x] = dfs(x-1)+dfs(x-2) ;
         return dp[x] ; 
