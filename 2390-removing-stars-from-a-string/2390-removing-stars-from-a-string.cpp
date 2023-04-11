@@ -12,8 +12,8 @@ public:
             
         }
         string ans ="";
-        for(int i=0 ; i < st.size(); i++){
-            ans += st[i] ; 
+        for(auto e:st){
+            ans += e ; 
         }
         return ans ; 
         
