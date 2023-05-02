@@ -15,10 +15,10 @@ public:
                 if( p % m != 0) sumv ++ ; 
             }
             
-            if(sumv > h){
-                l = m+1 ;
+            if(sumv <= h){
+                r = m ;
             }else {
-                r = m  ;
+                l = m+1  ;
             }
             
 
