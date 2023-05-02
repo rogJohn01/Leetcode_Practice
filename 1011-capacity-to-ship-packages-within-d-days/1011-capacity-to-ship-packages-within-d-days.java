@@ -1,6 +1,5 @@
 class Solution {
-    // Check whether the packages can be shipped in less than "days" days with
-    // "c" capacity.
+
     Boolean feasible(int[] weights, int c, int days) {
         int daysNeeded = 1, currentLoad = 0;
         for (int weight : weights) {
