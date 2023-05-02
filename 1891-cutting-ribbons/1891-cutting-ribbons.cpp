@@ -6,10 +6,10 @@ public:
         int m = (l + r + 1) / 2, obtain = 0;
         for (int i = 0; i < ribs.size() && obtain < k; ++i)
             obtain += ribs[i] / m;
-        if (obtain < k)
-            r = m - 1;
+        if (obtain >= k)
+            l = m ;
         else
-            l = m;
+            r = m-1;
     }
     return l;
 }
