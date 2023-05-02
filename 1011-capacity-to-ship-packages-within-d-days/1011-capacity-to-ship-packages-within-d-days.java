@@ -24,10 +24,10 @@ class Solution {
 
         while (l < r) {
             int mid = (l + r) / 2;
-            if (feasible(weights, mid, days)) {
-                r = mid;
+            if (!feasible(weights, mid, days)) {
+                l = mid +1;
             } else {
-                l = mid + 1;
+                r = mid ;
             }
         }
         return r;
