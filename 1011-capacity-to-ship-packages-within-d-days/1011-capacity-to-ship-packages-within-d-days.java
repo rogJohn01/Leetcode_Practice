@@ -30,6 +30,6 @@ class Solution {
                 r = mid ;
             }
         }
-        return r;
+        return l;
     }
 }
