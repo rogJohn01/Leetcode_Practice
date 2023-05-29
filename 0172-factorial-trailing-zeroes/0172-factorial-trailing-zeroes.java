@@ -3,9 +3,8 @@ class Solution {
         
         int ans = 0 ; 
         while(n != 0){
-            int tmp = n/5 ; 
-            ans +=tmp ; 
-            n = tmp;
+            ans += n/5; 
+            n = n/5; 
         }
         return ans ; 
     }
