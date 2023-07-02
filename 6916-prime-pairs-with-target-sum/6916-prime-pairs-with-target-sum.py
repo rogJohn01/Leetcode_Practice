@@ -23,7 +23,7 @@ class Solution:
             sumv = primes[l] + primes[r]
             if sumv ==n:
                 ans.append([ primes[l] , primes[r]])
-                l+=1
+                l+=1 ; r -=1 
             elif sumv < n: 
                 l +=1 
             else: 
